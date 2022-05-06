@@ -71,8 +71,13 @@ class HomeScreen extends StatelessWidget {
             GetBuilder<WeatherController>(
               builder: (controller) {
                 if (controller.weather == null) {
-                  return const Center(
-                    child: Text('data not found'),
+                  return Flexible(
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height*0.5,
+                      child: const Center(
+                        child: Text('Please enter the Location',style: TextStyle(fontSize: 18),),
+                      ),
+                    ),
                   );
                 } else {
                   final weather = controller.weather;
@@ -110,7 +115,7 @@ class HomeScreen extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(
-                          height: 20,
+                          height: 25,
                         ),
                         SizedBox(
                           width: double.infinity,
@@ -133,6 +138,7 @@ class HomeScreen extends StatelessWidget {
                                 information(
                                     weather.humidity.toString(), 'Humidity'),
                                 information(weather.description, 'Description'),
+                                information(weather.country, 'Country'),
                               ],
                             ),
                           ),

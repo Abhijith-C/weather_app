@@ -31,7 +31,7 @@ class WeatherModel {
         description: json['weather'][0]['description'],
         temp: json['main']['temp'],
         humidity: json['main']['humidity'],
-        country: json['name'],
+        country: json['sys']['country'],
         state: json['name']);
   }
 }
