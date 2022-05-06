@@ -73,9 +73,12 @@ class HomeScreen extends StatelessWidget {
                 if (controller.weather == null) {
                   return Flexible(
                     child: SizedBox(
-                      height: MediaQuery.of(context).size.height*0.5,
+                      height: MediaQuery.of(context).size.height * 0.5,
                       child: const Center(
-                        child: Text('Please enter the Location',style: TextStyle(fontSize: 18),),
+                        child: Text(
+                          'Please enter the Location',
+                          style: TextStyle(fontSize: 18),
+                        ),
                       ),
                     ),
                   );
@@ -134,10 +137,14 @@ class HomeScreen extends StatelessWidget {
                                 const SizedBox(
                                   height: 18,
                                 ),
+                                information(weather.lon.toString(), 'Longitude'),
+                                information(weather.lat.toString(), 'Latitude '),
                                 information(weather.weather, 'Weather Status'),
                                 information(
                                     weather.humidity.toString(), 'Humidity'),
                                 information(weather.description, 'Description'),
+                                information(
+                                    weather.speed.toString(), 'Wind spedd'),
                                 information(weather.country, 'Country'),
                               ],
                             ),

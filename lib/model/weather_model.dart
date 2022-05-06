@@ -5,6 +5,9 @@ class WeatherModel {
   int humidity;
   String country;
   String state;
+  double lon;
+  double lat;
+  double speed;
   WeatherModel({
     required this.weather,
     required this.description,
@@ -12,18 +15,10 @@ class WeatherModel {
     required this.humidity,
     required this.country,
     required this.state,
+    required this.lon,
+    required this.lat,
+    required this.speed,
   });
-
-  Map<String, dynamic> toJson() {
-    return {
-      'weather': weather,
-      'description': description,
-      'temp': temp,
-      'humidity': humidity,
-      'country': country,
-      'state': state
-    };
-  }
 
   static WeatherModel fromJson(Map<String, dynamic> json) {
     return WeatherModel(
@@ -32,6 +27,9 @@ class WeatherModel {
         temp: json['main']['temp'],
         humidity: json['main']['humidity'],
         country: json['sys']['country'],
+        lon: json['coord']['lon'],
+        lat: json['coord']['lat'],
+        speed: json['wind']['speed'],
         state: json['name']);
   }
 }
